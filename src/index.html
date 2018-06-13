@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src='./js/libs/handlebars-v4.0.11.js'></script>
+    <script src='./js/libs/jquery.js'></script>
+
+    <script id="first" type="text/x-handlebars-template">
+        <div class="entry">
+            <h1>{{tittle}}</h1>
+            <div class="body">
+                {{body}}
+            </div>
+        </div>
+    </script>
+
+    <script>
+        //a&b编译模板
+        var a = $("#first").html();
+        var b = Handlebars.compile(a);
+        //c&d传入数据
+        var c = {
+            tittle: "hello",
+            body: "world"
+        }
+        var d = b(c)
+            //将d放入html
+        $('body').html(d)
+    </script>
+</body>
+
+</html>
